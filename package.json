@@ -1,0 +1,36 @@
+{
+  "name": "@oceanprotocol/dockerhub-proxy",
+  "description": "Microservice API endpoint to validate Docker image URLs.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "homepage": "https://oceanprotocol.com",
+  "scripts": {
+    "start": "vercel dev",
+    "test": "npm run lint && npm run type-check",
+    "lint": "eslint --ignore-path .gitignore --ext .js --ext .ts --ext .tsx .",
+    "format": "prettier --ignore-path .gitignore './**/*.{css,yml,js,ts,tsx,json}' --write",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "@vercel/node": "^1.11.0",
+    "eslint": "^7.27.0",
+    "eslint-config-oceanprotocol": "^1.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oceanprotocol/dockerhub-proxy"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
