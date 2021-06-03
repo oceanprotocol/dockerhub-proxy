@@ -19,7 +19,7 @@
 
 ## 🏄 Usage
 
-...
+API supports passing docker hub container image and tag via a POST request.
 
 ### Endpoint
 
@@ -33,7 +33,8 @@ https://dockerhub-proxy.oceanprotocol.com
 
 ```json
 {
-  "url": "..."
+  "image": "oceanprotocol/aquarius",
+  "tag": "latest"
 }
 ```
 
