@@ -20,7 +20,10 @@ async function CheckDockerContainer(
   tag: string
 ): Promise<DockerHubResponse> {
   try {
-    const response = await axios.get(`${API_SERVICE_URL}/${image}/tags/${tag}`)
+    let imageName = image.includes('/') ? image : `library/${image}`
+    const response = await axios.get(
+      `${API_SERVICE_URL}/${imageName}/tags/${tag}`
+    )
     if (!response || response.status !== 200 || !response.data) {
       return { status: 'error', message: 'Container Not Found' }
     } else {
