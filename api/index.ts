@@ -20,7 +20,7 @@ async function CheckDockerContainer(
   tag: string
 ): Promise<DockerHubResponse> {
   try {
-    let imageName = image.includes('/') ? image : `library/${image}`
+    const imageName = image.includes('/') ? image : `library/${image}`
     const response = await axios.get(
       `${API_SERVICE_URL}/${imageName}/tags/${tag}`
     )
