@@ -29,10 +29,10 @@ async function CheckDockerContainer(
       return { status: 'error', message: 'Container Not Found' }
     } else {
       const dockerHubResponse: ResponseResult = {
-        name: response.data.name,
-        lastUpdated: response.data.last_updated,
-        tagStatus: response.data.tag_status,
-        checksum: response.data.image.digest
+        name: response?.data?.name,
+        lastUpdated: response?.data?.last_updated,
+        tagStatus: response?.data?.tag_status,
+        checksum: response?.data?.image?.[0]?.digest
       }
       return {
         status: 'success',
