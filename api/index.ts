@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import axios, { AxiosResponse, Method } from 'axios'
+import axios from 'axios'
 
 const API_SERVICE_URL = 'https://hub.docker.com/v2/repositories'
 
@@ -7,6 +7,7 @@ export interface ResponseResult {
   name?: string
   lastUpdated?: string
   tagStatus?: boolean
+  checksum?: string
 }
 
 export interface DockerHubResponse {
@@ -28,9 +29,10 @@ async function CheckDockerContainer(
       return { status: 'error', message: 'Container Not Found' }
     } else {
       const dockerHubResponse: ResponseResult = {
-        name: response.data.name,
-        lastUpdated: response.data.last_updated,
-        tagStatus: response.data.tag_status
+        name: response?.data?.name,
+        lastUpdated: response?.data?.last_updated,
+        tagStatus: response?.data?.tag_status,
+        checksum: response?.data?.image?.[0]?.digest
       }
       return {
         status: 'success',
@@ -38,7 +40,10 @@ async function CheckDockerContainer(
       }
     }
   } catch (error) {
-    return { status: 'error', message: error.message }
+    return {
+      status: 'error',
+      message: error instanceof Error ? error.message : 'Something went wrong'
+    }
   }
 }
 
