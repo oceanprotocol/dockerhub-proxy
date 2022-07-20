@@ -32,7 +32,7 @@ async function CheckDockerContainer(
         name: response?.data?.name,
         lastUpdated: response?.data?.last_updated,
         tagStatus: response?.data?.tag_status,
-        checksum: response?.data?.image?.[0]?.digest
+        checksum: response?.data?.images?.[0]?.digest
       }
       return {
         status: 'success',
