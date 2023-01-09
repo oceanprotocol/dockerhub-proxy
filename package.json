@@ -2,6 +2,7 @@
   "name": "@oceanprotocol/dockerhub-proxy",
   "description": "Microservice API endpoint to validate Docker image URLs.",
   "version": "0.1.0",
+  "type": "module",
   "license": "Apache-2.0",
   "homepage": "https://oceanprotocol.com",
   "scripts": {
@@ -12,7 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "axios": "^1.2.1"
+    "axios": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
